@@ -1,6 +1,6 @@
 <script>
     export default {
-        
+
     }
 </script>
 
@@ -14,6 +14,4 @@
     </nav>
 </template>
 
-<style>
-
-</style>
+<style lang="scss" scoped></style>
