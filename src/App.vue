@@ -1,17 +1,17 @@
 <script>
 
 import axios from 'axios';
+import { api, store } from './store';
+
 
 export default {
     data() {
       return {
+        store,
 
         title: 'Projects',
 
         projects: [],
-
-
-
 
       }
 
@@ -20,11 +20,11 @@ export default {
 
     created() {
       
-      axios.get('http://127.0.0.1:8000/api/projects').then((response) => {
+      axios.get(api.rootUrl + 'projects').then((response) => {
 
         console.log(response.data.data);
 
-        this.projects = response.data.data;
+        store.projects = response.data.data;
 
       });
 
@@ -49,7 +49,7 @@ export default {
         </thead>
 
         <tbody>
-          <tr v-for="proj in projects">
+          <tr v-for="proj in store.projects">
             <td>
               {{ proj.id }}
             </td>
@@ -64,9 +64,7 @@ export default {
           </tr>
         </tbody>
       </table>
-
     </div>
-
   </div>
 
 </template>
