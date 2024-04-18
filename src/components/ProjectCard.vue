@@ -17,13 +17,20 @@ export default {
     <div class="col">
 
         <div class="card h-100">
-            <img v-if="project.image" :src="project.image" class="card-img-top" alt="...">
+            <img :src="project.image ? project.image : 'https://placehold.co/600x400'" class="card-img-top" alt="...">
             <div class="card-body">
 
+                <!-- PROJECT TITLE -->
                 <h5 class="card-title">
                     {{ project.id }}: {{ project.title }}
                 </h5>
 
+                <!-- PROJECT TYPE
+                <div v-if="project.type.label" class="badge">
+                    {{ project.type.label }}
+                </div> -->
+
+                <!-- PROJECT CONTENT -->
                 <p class="card-text">
                     {{ abstract }}
                 </p>
