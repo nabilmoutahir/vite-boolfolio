@@ -2,6 +2,7 @@
 
 import AppHeader from './components/AppHeader.vue';
 import ProjectCard from './components/ProjectCard.vue';
+import ProjectCardsList from './components/ProjectCardsList.vue';
 
 export default {
     data() {
@@ -13,7 +14,7 @@ export default {
 
     },
 
-    components: { AppHeader, ProjectCard },
+    components: { AppHeader, ProjectCardsList},
 
     
 
@@ -29,7 +30,7 @@ export default {
 
     <h1>{{ title }}</h1>
 
-    <ProjectCard></ProjectCard>
+    <ProjectCardsList></ProjectCardsList>
 
   </div>
 
