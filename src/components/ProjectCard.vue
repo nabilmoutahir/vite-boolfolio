@@ -1,61 +1,31 @@
 <script>
 
-import axios from 'axios';
-import { api, store } from '../store';
-
 export default {
-    data() {
-        return {
-            store,
 
-            title: 'Projects',
-
-        }
-
-    },
-
-    created() {
-
-        axios.get(api.rootUrl + 'projects').then((response) => {
-
-            console.log(response.data.data);
-
-            store.projects = response.data.data;
-
-        });
-
-    },
-
+    props: { project: Object },
 
 }
 </script>
 
 <template>
 
-    <div>
-        <table class="table">
-            <thead>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-            </thead>
+    <div class="col">
 
-            <tbody>
-                <tr v-for="proj in store.projects">
-                    <td>
-                        {{ proj.id }}
-                    </td>
+        <div class="card h-100">
+            <img v-if="project.image" :src="project.image" class="card-img-top" alt="...">
+            <div class="card-body">
 
-                    <td>
-                        {{ proj.title }}
-                    </td>
+                <h5 class="card-title">
+                    {{ project.id }}: {{ project.title }}
+                </h5>
 
-                    <td>
-                        {{ proj.content }}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <p class="card-text">
+                    {{ project.content }}
+                </p>
+                <a href="#" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+
     </div>
 
 </template>
