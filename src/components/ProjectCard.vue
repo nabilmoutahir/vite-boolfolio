@@ -4,6 +4,11 @@ export default {
 
     props: { project: Object },
 
+    computed: {
+       abstract(){
+            return this.project.content.length > 50 ? this.project.content.substr(0, 50) + '...' : this.project.content;
+       }
+    }
 }
 </script>
 
@@ -20,7 +25,7 @@ export default {
                 </h5>
 
                 <p class="card-text">
-                    {{ project.content }}
+                    {{ abstract }}
                 </p>
                 <a href="#" class="btn btn-primary">Details</a>
             </div>
